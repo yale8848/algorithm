@@ -37,7 +37,7 @@ public class Main {
 
     public static void main(String[] args)
     {
-        int[] result = Viterbi.compute(observations, states, start_probability, transititon_probability, emission_probability);
+        int[] result = Viterbi.compute2(observations, states, start_probability, transititon_probability, emission_probability);
         for (int r : result)
         {
             System.out.print(Weather.values()[r] + " ");

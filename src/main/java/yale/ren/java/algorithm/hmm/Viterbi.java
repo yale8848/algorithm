@@ -11,13 +11,40 @@ public class Viterbi {
 
         int ret[] = new int[obs.length];
 
-        double vf[]=new double[obs.length];
+        double vf[][]=new double[obs.length][states.length];
 
-        for ( double vs: start_p) {
+        int i = 0;
+        double m = -Integer.MIN_VALUE;
+        for (int st:states){
+            vf[i][st] = (start_p[st]*emit_p[st][obs[i]]);
+            if (vf[i][st]>m){
+                m = vf[i][st];
+                ret[i] = st;
+            }
         }
+        i++;
 
-        for (int vo:obs) {
-            vf[vo] = (int) (states[vo]*emit_p[0][vo]);
+        for (int j = i;j<obs.length;j++){
+
+            double m1 = -Integer.MIN_VALUE;
+            for (int st1: states) {
+
+                double m2 = -Integer.MIN_VALUE;
+                for (int st2 :states){
+                    vf[j][st1] = vf[j-1][st1]*trans_p[st1][st2];
+
+                    if (vf[j][st1]>m2){
+                        m2 = vf[j][st1];
+                    }
+                }
+                double m3 = m2*emit_p[st1][j];
+                vf[j][st1] = m3;
+                if (m3>m1){
+                    m1 = m3;
+                    ret[j] = st1;
+                }
+            }
+
 
         }
 
@@ -27,13 +54,13 @@ public class Viterbi {
 
 
     /**
-     * ??HMM??
-     * @param obs ????
-     * @param states ???
-     * @param start_p ?????????
-     * @param trans_p ?????????
-     * @param emit_p ???? ??????????????
-     * @return ??????
+     * 求解HMM模型
+     * @param obs 观测序列
+     * @param states 隐状态
+     * @param start_p 初始概率（隐状态）
+     * @param trans_p 转移概率（隐状态）
+     * @param emit_p 发射概率 （隐状态表现为显状态的概率）
+     * @return 最可能的序列
      */
     public static int[] compute(int[] obs, int[] states, double[] start_p, double[][] trans_p, double[][] emit_p)
     {
@@ -61,9 +88,9 @@ public class Viterbi {
                     {
                         prob = nprob;
                         state = y0;
-                        // ??????
+                        // 记录最大概率
                         V[t][y] = prob;
-                        // ????
+                        // 记录路径
                         System.arraycopy(path[state], 0, newpath[y], 0, t);
                         newpath[y][t] = y;
                     }
