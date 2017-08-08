@@ -30,11 +30,11 @@ public class Viterbi {
             for (int st1: states) {
 
                 double m2 = -Integer.MIN_VALUE;
+                double tmp ;
                 for (int st2 :states){
-                    vf[j][st1] = vf[j-1][st1]*trans_p[st1][st2];
-
-                    if (vf[j][st1]>m2){
-                        m2 = vf[j][st1];
+                    tmp = vf[j-1][st2]*trans_p[st2][st1];
+                    if (tmp>m2){
+                        m2 = tmp;
                     }
                 }
                 double m3 = m2*emit_p[st1][j];
