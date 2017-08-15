@@ -34,18 +34,14 @@ public class MergeSort<T extends  Comparable> extends  BaseSort<T> {
                 tmp[k++] = array[j++];
             }
         }
-
         while (i<=mid){
             tmp[k++] = array[i++];
         }
         while (j<=right){
             tmp[k++] = array[j++];
         }
-
         for (i = 0;i<k;i++){
             array[left+i] = tmp[k];
         }
-
-
     }
 }
