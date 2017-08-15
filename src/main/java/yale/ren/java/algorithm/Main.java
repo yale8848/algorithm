@@ -1,6 +1,10 @@
 package yale.ren.java.algorithm;
 
 import yale.ren.java.algorithm.hmm.Viterbi;
+import yale.ren.java.algorithm.sort.BaseSort;
+import yale.ren.java.algorithm.sort.BubbleSort;
+import yale.ren.java.algorithm.sort.FastSort;
+import yale.ren.java.algorithm.sort.HeapSort;
 
 import static yale.ren.java.algorithm.Main.Activity.clean;
 import static yale.ren.java.algorithm.Main.Activity.shop;
@@ -35,8 +39,7 @@ public class Main {
             {0.6, 0.3, 0.1},
     };
 
-    public static void main(String[] args)
-    {
+    private static void hmm(){
         int[] result = Viterbi.compute2(observations, states, start_probability, transititon_probability, emission_probability);
         for (int r : result)
         {
@@ -44,4 +47,17 @@ public class Main {
         }
         System.out.println();
     }
+
+    public static void main(String[] args)
+    {
+        Integer data [] = new Integer[]{20,30,90,40,70,110,60,10,100,50,80};
+        data = new Integer[]{6 ,1 ,2 ,7, 9 , 4 ,6 ,10, 8};//6 1 2 7 9 3 4 5 10 8
+        BaseSort<Integer> heapSort = new BubbleSort<Integer>();
+        heapSort.setData(data);
+        heapSort.sort();
+
+
+    }
+
+
 }
