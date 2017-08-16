@@ -1,7 +1,7 @@
 package yale.ren.java.algorithm.sort;
 
 /**
- * Created by word on 2017/8/15.
+ * Created by yale on 2017/8/15.
  */
 public class BubbleSort<T extends Comparable> extends BaseSort<T> {
 

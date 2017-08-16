@@ -17,9 +17,7 @@ public class HeapSort<T extends  Comparable> extends BaseSort<T> {
     private void changePos(){
         int start = mArray.length-1;
         for (int i = start;i>=0;i--){
-            T tmp = mArray[i];
-            mArray[i] = mArray[0];
-            mArray[0] = tmp;
+            swap(i,0);
             create(0,i-1);//注意从第一个开始创建
         }
     }

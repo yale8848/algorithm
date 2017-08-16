@@ -1,7 +1,7 @@
 package yale.ren.java.algorithm.sort;
 
 /**
- * Created by word on 2017/8/15.
+ * Created by yale on 2017/8/15.
  * http://developer.51cto.com/art/201403/430986.htm
  * http://blog.csdn.net/morewindows/article/details/6684558
  *
@@ -30,9 +30,7 @@ public class FastSort<T extends  Comparable> extends BaseSort<T> {
                 i++;
             }
             if (i<j){
-                T tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
+                swap(i,j);
             }
         }
         array[start] = array[i];

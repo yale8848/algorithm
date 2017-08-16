@@ -1,7 +1,7 @@
 package yale.ren.java.algorithm.sort;
 
 /**
- * Created by word on 2017/8/15.
+ * Created by yale on 2017/8/15.
  * http://flyingcat2013.blog.51cto.com/7061638/1281026
  *http://www.cnblogs.com/jingmoxukong/p/4308823.html
  *
