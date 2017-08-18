@@ -19,7 +19,6 @@ public class BucketSort<T extends Comparable<T>> extends BaseSort<T> {
     }
 
     public void bucketInnerSort(Node bucket[] ,Integer v){
-
     }
     private Node pritation(Node start,Node end){
 
@@ -45,6 +44,13 @@ public class BucketSort<T extends Comparable<T>> extends BaseSort<T> {
 
     }
     private void fastSort(Node start,Node end){
+
+        if(start == end){
+            return;
+        }
+        Node mid = pritation(start,end);
+        fastSort(start,mid);
+        fastSort(mid.next,end);
 
     }
 
