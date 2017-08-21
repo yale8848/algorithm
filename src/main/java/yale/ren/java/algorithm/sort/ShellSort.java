@@ -25,7 +25,6 @@ public class ShellSort<T extends Comparable> extends BaseSort<T> {
                     }
                     mArray[k+gap] = tmp;
                 }
-
             }
             gap /= 2;
         }
