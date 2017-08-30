@@ -49,9 +49,9 @@ public class Main {
     {
         Integer data [] = new Integer[]{20,30,90,40,70,110,60,10,100,50,80};
         data = new Integer[]{6 ,1 ,2 ,7, 9 , 4 ,6 ,10, 8};
-        BaseSort<Integer> heapSort = new ShellSort<Integer>();
+        MergeSort<Integer> heapSort = new MergeSort<Integer>();
         heapSort.setData(data);
-        heapSort.sort();
+        heapSort.sort(Integer.class);
         heapSort.printSort();
     }
 

@@ -1,5 +1,8 @@
 package yale.ren.java.algorithm.sort;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /**
  * Created by yale on 2017/8/15.
  * http://flyingcat2013.blog.51cto.com/7061638/1281026
@@ -10,6 +13,10 @@ public class MergeSort<T extends  Comparable> extends  BaseSort<T> {
 
     public void sort() {
         T[] tmp = (T[]) new Object[mArray.length];
+        divide(mArray,tmp,0,mArray.length-1);
+    }
+    public void sort(Class cls){
+        T[] tmp = (T[]) Array.newInstance(cls,mArray.length);
         divide(mArray,tmp,0,mArray.length-1);
     }
 

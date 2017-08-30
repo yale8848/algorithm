@@ -20,6 +20,9 @@ public abstract class BaseSort<T extends Comparable> {
         mArray[j] = tmp;
     }
     public abstract void sort();
+    protected  void sort(Class<T> cls){
+
+    }
 
     public void printSort(){
         log("after: "+Arrays.toString(mArray));
